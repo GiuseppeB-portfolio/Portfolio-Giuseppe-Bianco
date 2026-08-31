@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Progetti — Giuseppe Bianco</title>
+  <meta name="description" content="Selezione di progetti di data analysis, machine learning e data visualization realizzati da Giuseppe Bianco.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Vai al contenuto</a>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <nav class="navbar navbar-expand-lg site-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Giuseppe Bianco<span class="brand-dot"></span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Apri il menu di navigazione">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="progetti.html">Progetti</a></li>
+          <li class="nav-item"><a class="nav-link" href="cv.html">CV</a></li>
+          <li class="nav-item"><a class="nav-link nav-link-cta" href="contatti.html">Contattami</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+
+    <section class="section pb-0">
+      <div class="container">
+        <p class="section-eyebrow">Portfolio</p>
+        <h1 class="section-title">Progetti in evidenza</h1>
+        <p class="mb-0" style="max-width: 65ch;">Una selezione dei lavori più rappresentativi del mio percorso: dal machine learning alla business intelligence, passando per l'analisi SQL e la data visualization.</p>
+      </div>
+    </section>
+
+    <!-- ===================== PROGETTI (CSS Grid) ===================== -->
+    <section class="section">
+      <div class="container">
+
+        <div class="projects-category">
+          <h3>Machine Learning</h3>
+          <div class="grid-3">
+
+            <article class="project-card">
+              <h3>Progressione del diabete — Ridge Regression</h3>
+              <ul class="project-tags">
+                <li>Python</li><li>scikit-learn</li><li>pandas</li>
+              </ul>
+              <p>Modello di regressione regolarizzata per stimare la progressione della malattia a 12 mesi, con scelta del modello guidata dall'EDA e validazione senza data leakage.</p>
+              <a href="https://github.com/GiuseppeB-portfolio/Progressione-del-diabete-a-12-mesi-Ridge-Regression" class="project-link" target="_blank" rel="noopener">Vedi il repository →</a>
+            </article>
+
+            <article class="project-card">
+              <h3>Retail Analytics Toolkit</h3>
+              <ul class="project-tags">
+                <li>Python</li><li>scikit-learn</li><li>XGBoost</li><li>statsmodels</li>
+              </ul>
+              <p>Quattro domande di business, quattro tecniche di ML a confronto: regressione, classificazione, clustering e time series forecasting su dati retail.</p>
+              <a href="https://github.com/GiuseppeB-portfolio/Retail-Analytics-Toolkit" class="project-link" target="_blank" rel="noopener">Vedi il repository →</a>
+            </article>
+
+          </div>
+        </div>
+
+        <div class="projects-category">
+          <h3>Analisi Dati</h3>
+          <div class="grid-3">
+
+            <article class="project-card">
+              <h3>Marketing Mix Analysis</h3>
+              <ul class="project-tags">
+                <li>Python</li><li>pandas</li><li>Plotly</li>
+              </ul>
+              <p>Analisi dell'efficacia di 7 canali di marketing, tradotta in una proposta operativa di allocazione budget per una no-profit.</p>
+              <a href="https://github.com/GiuseppeB-portfolio/marketing-mix-analysis" class="project-link" target="_blank" rel="noopener">Vedi il repository →</a>
+            </article>
+
+            <article class="project-card">
+              <h3>Analisi SQL multi-paese — Sviluppo sostenibile</h3>
+              <ul class="project-tags">
+                <li>SQL</li><li>PostgreSQL</li>
+              </ul>
+              <p>Otto query progressive su indicatori globali di sviluppo, da un pattern staging → view fino a un'analisi multivariata per quartili di reddito.</p>
+              <a href="https://github.com/GiuseppeB-portfolio/Analisi_SQL_multi_paese_su_indicatori_globali_di_sviluppo_sostenibile" class="project-link" target="_blank" rel="noopener">Vedi il repository →</a>
+            </article>
+
+            <article class="project-card">
+              <h3>Analisi vendite e-commerce plant-based</h3>
+              <ul class="project-tags">
+                <li>Excel</li><li>Pivot table</li>
+              </ul>
+              <p>20 quesiti su un dataset di vendite, tra funzioni condizionali, VLOOKUP e tabelle pivot, per un e-commerce alimentare sostenibile.</p>
+              <a href="https://github.com/GiuseppeB-portfolio/ecommerce-plantbased" class="project-link" target="_blank" rel="noopener">Vedi il repository →</a>
+            </article>
+
+            <article class="project-card">
+              <h3>Analisi Airbnb — Turismo sostenibile</h3>
+              <ul class="project-tags">
+                <li>Excel Advanced</li><li>Pivot table</li>
+              </ul>
+              <p>Analisi di 999 prenotazioni per orientare una strategia di marketing verso città e clienti a basso impatto ambientale.</p>
+              <a href="https://github.com/GiuseppeB-portfolio/turismo-sostenibile" class="project-link" target="_blank" rel="noopener">Vedi il repository →</a>
+            </article>
+
+          </div>
+        </div>
+
+        <div class="projects-category">
+          <h3>Data Visualization</h3>
+          <div class="grid-3">
+
+            <article class="project-card">
+              <h3>World Happiness 2015-2019</h3>
+              <ul class="project-tags">
+                <li>Tableau</li><li>LOD expressions</li>
+              </ul>
+              <p>Quattro dashboard narrative (dove, come, perché, strategia) sulla felicità globale, con calcoli avanzati e correlazioni ricalcolate in-viz.</p>
+              <a href="https://public.tableau.com/views/WorldHappinessReport2015-2019AnalisieStrategia/Dove" class="project-link" target="_blank" rel="noopener">Vedi la dashboard live →</a>
+            </article>
+
+            <article class="project-card">
+              <h3>Analisi finanziaria — Power BI</h3>
+              <ul class="project-tags">
+                <li>Power BI</li><li>DAX</li>
+              </ul>
+              <p>Dashboard con modellazione dati avanzata, misure DAX personalizzate (margine, budget, target) e simulazioni sull'impatto dei prezzi.</p>
+              <a href="https://github.com/GiuseppeB-portfolio/powerbi-analisi-finanziaria" class="project-link" target="_blank" rel="noopener">Vedi il repository →</a>
+            </article>
+
+            <article class="project-card">
+              <h3>Analisi delle migliori università nel mondo</h3>
+              <ul class="project-tags">
+                <li>Looker Studio</li><li>Google Sheets</li>
+              </ul>
+              <p>Analisi di 1.398 università su distribuzione geografica degli studenti, squilibri di genere e ranking accademico globale.</p>
+              <a href="https://lookerstudio.google.com/s/v3pvD2xgs74" class="project-link" target="_blank" rel="noopener">Vedi il report live →</a>
+            </article>
+
+          </div>
+        </div>
+
+        <div class="projects-category">
+          <h3>Full Stack</h3>
+          <div class="grid-3">
+
+            <article class="project-card">
+              <h3>Owly Content Manager</h3>
+              <ul class="project-tags">
+                <li>Python</li><li>OOP</li>
+              </ul>
+              <p>Componente backend per la gestione di contenuti didattici: CRUD completo, ricerca e statistiche, con architettura a tre livelli separati.</p>
+              <a href="https://github.com/GiuseppeB-portfolio/owly-content-manager" class="project-link" target="_blank" rel="noopener">Vedi il repository →</a>
+            </article>
+
+            <article class="project-card">
+              <h3>Depyl — Landing page</h3>
+              <ul class="project-tags">
+                <li>HTML5</li><li>CSS3</li>
+              </ul>
+              <p>Landing page semantica per un'azienda ipotetica di depurazione dell'acqua, tra vendita B2B/B2C e impatto sociale.</p>
+              <a href="https://github.com/GiuseppeB-portfolio/Depyl-Landing-page-per-un-azienda-di-depurazione-dell-acqua" class="project-link" target="_blank" rel="noopener">Vedi il repository →</a>
+            </article>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="mb-0">© <span id="year">2026</span> Giuseppe Bianco</p>
+      <ul class="footer-links">
+        <li><a href="https://github.com/GiuseppeB-portfolio" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/giuseppe-bianco-data-analyst" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="contatti.html">Contatti</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

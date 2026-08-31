@@ -1,0 +1,47 @@
+// =========================================================
+// VARIABILI GLOBALI
+// =========================================================
+
+// Palette (tema chiaro, editoriale)
+$color-bg:          #f7f5f1;
+$color-surface:     #ffffff;
+$color-surface-alt: #efece5;
+$color-text:        #1d2129;
+$color-text-muted:  #5c6270;
+$color-border:      #e2ddd3;
+
+$color-primary:      #2b3a67; // blu indaco
+$color-primary-dark: #1c2748;
+$color-accent:       #e0693f; // terracotta
+$color-accent-light: #f2a488;
+
+$color-success: #3a7d5c;
+
+// Tipografia
+$font-heading: 'Sora', 'Segoe UI', sans-serif;
+$font-body:    'Inter', 'Segoe UI', sans-serif;
+$font-mono:    'JetBrains Mono', 'Courier New', monospace;
+
+// Spaziature
+$space-1: 0.4rem;
+$space-2: 0.8rem;
+$space-3: 1.6rem;
+$space-4: 2.4rem;
+$space-5: 4rem;
+$space-6: 6rem;
+
+// Bordi / ombre
+$radius-sm: 6px;
+$radius-md: 12px;
+$radius-lg: 20px;
+$shadow-sm: 0 2px 8px rgba(29, 33, 41, 0.06);
+$shadow-md: 0 8px 24px rgba(29, 33, 41, 0.1);
+
+// Breakpoint (allineati a Bootstrap)
+$bp-sm: 576px;
+$bp-md: 768px;
+$bp-lg: 992px;
+$bp-xl: 1200px;
+
+// Header
+$header-height: 72px;

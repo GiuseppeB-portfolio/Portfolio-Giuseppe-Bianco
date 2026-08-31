@@ -1,0 +1,121 @@
+// =========================================================
+// HERO (layout con Flexbox)
+// =========================================================
+
+.hero {
+  padding: $space-6 0;
+  background:
+    radial-gradient(circle at 85% 20%, rgba($color-accent, 0.12), transparent 55%),
+    $color-bg;
+
+  .hero-inner {
+    display: flex;
+    align-items: center;
+    gap: $space-5;
+
+    @media (max-width: $bp-lg) {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+
+  .hero-content {
+    flex: 1 1 55%;
+  }
+
+  .hero-eyebrow {
+    font-family: $font-mono;
+    color: $color-accent;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: $space-2;
+  }
+
+  .hero-lead {
+    font-size: 1.15rem;
+    color: $color-text-muted;
+    max-width: 46ch;
+
+    @media (max-width: $bp-lg) {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-2;
+    margin-top: $space-4;
+
+    @media (max-width: $bp-lg) {
+      justify-content: center;
+    }
+  }
+
+  .hero-visual {
+    flex: 1 1 40%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-card {
+    background-color: $color-surface;
+    border: 1px solid $color-border;
+    border-radius: $radius-lg;
+    box-shadow: $shadow-md;
+    padding: $space-4;
+    width: 100%;
+    max-width: 340px;
+
+    .hero-card-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: $space-2 0;
+      border-bottom: 1px dashed $color-border;
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+
+    .hero-card-value {
+      font-family: $font-mono;
+      font-weight: 600;
+      color: $color-primary;
+    }
+  }
+}
+
+// Bottoni condivisi
+.btn-primary-custom {
+  background-color: $color-primary;
+  border-color: $color-primary;
+  color: #fff;
+  font-weight: 600;
+  padding: 0.65rem 1.4rem;
+  border-radius: $radius-sm;
+
+  &:hover {
+    background-color: $color-primary-dark;
+    border-color: $color-primary-dark;
+    color: #fff;
+  }
+}
+
+.btn-outline-custom {
+  background-color: transparent;
+  border: 1px solid $color-primary;
+  color: $color-primary;
+  font-weight: 600;
+  padding: 0.65rem 1.4rem;
+  border-radius: $radius-sm;
+
+  &:hover {
+    background-color: $color-primary;
+    color: #fff;
+  }
+}

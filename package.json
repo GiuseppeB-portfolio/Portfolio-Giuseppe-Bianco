@@ -1,0 +1,17 @@
+{
+  "name": "portfolio-giuseppe-bianco",
+  "version": "1.0.0",
+  "description": "Portfolio personale di Giuseppe Bianco — progetto didattico HTML/CSS/Sass/Bootstrap.",
+  "main": "index.js",
+  "scripts": {
+    "build:css": "sass scss/style.scss:css/style.css --style=compressed --no-source-map",
+    "watch:css": "sass --watch scss/style.scss:css/style.css --no-source-map"
+  },
+  "keywords": [],
+  "author": "Giuseppe Bianco",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "sass": "^1.103.1"
+  }
+}

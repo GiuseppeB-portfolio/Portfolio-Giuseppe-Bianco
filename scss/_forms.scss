@@ -1,0 +1,94 @@
+// =========================================================
+// FORM DI CONTATTO
+// =========================================================
+@use 'sass:color';
+
+.contact-layout {
+  display: flex;
+  gap: $space-5;
+  flex-wrap: wrap;
+
+  .contact-info {
+    flex: 1 1 280px;
+  }
+
+  .contact-form-wrap {
+    flex: 2 1 420px;
+  }
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  margin-top: $space-3;
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: $space-2;
+    color: $color-text;
+    font-weight: 500;
+
+    svg {
+      flex-shrink: 0;
+      color: $color-accent;
+    }
+
+    &:hover {
+      color: $color-accent;
+    }
+  }
+}
+
+.contact-form {
+  background-color: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  padding: $space-4;
+  box-shadow: $shadow-sm;
+
+  .form-label {
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .form-control {
+    border-radius: $radius-sm;
+    border: 1px solid $color-border;
+    padding: 0.65rem 0.9rem;
+
+    &:focus {
+      border-color: $color-primary;
+      box-shadow: 0 0 0 3px rgba($color-primary, 0.15);
+    }
+  }
+
+  .form-note {
+    font-size: 0.8rem;
+    color: $color-text-muted;
+    margin-top: $space-1;
+  }
+}
+
+.form-status {
+  margin-top: $space-3;
+  padding: $space-2 $space-3;
+  border-radius: $radius-sm;
+  font-size: 0.9rem;
+  display: none;
+
+  &.is-visible {
+    display: block;
+  }
+
+  &.is-success {
+    background-color: rgba($color-success, 0.12);
+    color: $color-success;
+  }
+
+  &.is-error {
+    background-color: rgba($color-accent, 0.12);
+    color: color.adjust($color-accent, $lightness: -10%);
+  }
+}

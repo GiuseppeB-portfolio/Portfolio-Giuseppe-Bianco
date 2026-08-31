@@ -1,0 +1,109 @@
+// =========================================================
+// PAGINA CV — layout con Flexbox
+// =========================================================
+
+.cv-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: $space-4;
+  padding-bottom: $space-4;
+  border-bottom: 2px solid $color-primary-dark;
+  margin-bottom: $space-5;
+
+  .cv-identity h1 {
+    margin-bottom: $space-1;
+  }
+
+  .cv-role {
+    color: $color-accent;
+    font-weight: 600;
+    font-family: $font-mono;
+  }
+
+  .cv-contacts {
+    display: flex;
+    flex-direction: column;
+    gap: $space-1;
+    font-size: 0.95rem;
+    text-align: right;
+
+    @media (max-width: $bp-sm) {
+      text-align: left;
+    }
+  }
+}
+
+.cv-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: $space-4;
+}
+
+.cv-entry {
+  display: flex;
+  gap: $space-4;
+  padding: $space-3;
+  border-radius: $radius-md;
+  background-color: $color-surface;
+  border: 1px solid $color-border;
+
+  @media (max-width: $bp-sm) {
+    flex-direction: column;
+    gap: $space-1;
+  }
+
+  .cv-entry-period {
+    flex: 0 0 160px;
+    font-family: $font-mono;
+    font-size: 0.85rem;
+    color: $color-text-muted;
+    font-weight: 600;
+  }
+
+  .cv-entry-body {
+    flex: 1;
+
+    h3 {
+      margin-bottom: $space-1;
+    }
+
+    .cv-entry-org {
+      color: $color-accent;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: $space-2;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 1.2rem;
+      color: $color-text-muted;
+
+      li {
+        margin-bottom: 0.3rem;
+      }
+    }
+  }
+}
+
+.cv-print-hint {
+  text-align: center;
+  color: $color-text-muted;
+  font-size: 0.85rem;
+  margin-top: $space-4;
+}
+
+@media print {
+  .site-navbar,
+  .site-footer,
+  .cv-print-hint,
+  .btn-print {
+    display: none !important;
+  }
+
+  body {
+    padding-top: 0;
+  }
+}
