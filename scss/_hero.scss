@@ -6,7 +6,12 @@
   padding: $space-6 0;
   background:
     radial-gradient(circle at 85% 20%, rgba($color-accent, 0.12), transparent 55%),
+    radial-gradient(circle at 10% 90%, rgba($color-primary, 0.06), transparent 50%),
     $color-bg;
+
+  @media (max-width: $bp-md) {
+    padding: $space-5 0;
+  }
 
   .hero-inner {
     display: flex;
@@ -25,7 +30,7 @@
 
   .hero-eyebrow {
     font-family: $font-mono;
-    color: $color-accent;
+    color: $color-accent-dark;
     text-transform: uppercase;
     letter-spacing: 0.12em;
     font-size: 0.85rem;
@@ -91,31 +96,41 @@
 }
 
 // Bottoni condivisi
-.btn-primary-custom {
-  background-color: $color-primary;
-  border-color: $color-primary;
-  color: #fff;
+@mixin btn-custom {
   font-weight: 600;
   padding: 0.65rem 1.4rem;
   border-radius: $radius-sm;
+  transition: background-color $transition, border-color $transition,
+              color $transition, box-shadow $transition;
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+.btn-primary-custom {
+  @include btn-custom;
+  background-color: $color-primary;
+  border-color: $color-primary;
+  color: #fff;
 
   &:hover {
     background-color: $color-primary-dark;
     border-color: $color-primary-dark;
     color: #fff;
+    box-shadow: $shadow-sm;
   }
 }
 
 .btn-outline-custom {
+  @include btn-custom;
   background-color: transparent;
   border: 1px solid $color-primary;
   color: $color-primary;
-  font-weight: 600;
-  padding: 0.65rem 1.4rem;
-  border-radius: $radius-sm;
 
   &:hover {
     background-color: $color-primary;
     color: #fff;
+    box-shadow: $shadow-sm;
   }
 }

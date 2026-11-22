@@ -1,26 +1,40 @@
 // =========================================================
-// CARD (skill, esperienza)
+// CARD (skill, esperienza, progetti)
 // =========================================================
 
-.skill-card {
+@mixin card-base {
+  position: relative;
   background-color: $color-surface;
   border: 1px solid $color-border;
   border-radius: $radius-md;
   padding: $space-4;
   height: 100%;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: $shadow-sm;
+  transition: transform $transition, box-shadow $transition, border-color $transition;
 
-  &:hover {
-    transform: translateY(-4px);
+  &:hover,
+  &:focus-within {
+    border-color: $color-accent-light;
     box-shadow: $shadow-md;
   }
+
+  // Sollevamento solo con mouse e se le animazioni non sono disattivate
+  @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    &:hover {
+      transform: translateY(-4px);
+    }
+  }
+}
+
+.skill-card {
+  @include card-base;
 
   .skill-index {
     display: inline-block;
     font-family: $font-mono;
     font-size: 0.75rem;
     font-weight: 600;
-    color: $color-accent;
+    color: $color-accent-dark;
     border: 1px solid $color-accent-light;
     border-radius: 999px;
     padding: 0.15rem 0.6rem;
@@ -48,19 +62,9 @@
 
 // Card progetto (griglia CSS in _grid.scss)
 .project-card {
-  background-color: $color-surface;
-  border: 1px solid $color-border;
-  border-radius: $radius-md;
-  padding: $space-4;
-  height: 100%;
+  @include card-base;
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-
-  &:hover {
-    transform: translateY(-4px);
-    box-shadow: $shadow-md;
-  }
 
   .project-tags {
     list-style: none;
@@ -89,6 +93,14 @@
   .project-link {
     font-weight: 600;
     font-size: 0.9rem;
+
+    // Rende cliccabile l'intera card: il link si estende su tutta l'area
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: $radius-md;
+    }
   }
 }
 
