@@ -7,7 +7,6 @@ Sito personale in HTML, CSS (Sass) e Bootstrap.
 - `index.html` — Home, hero, chi sono, competenze
 - `progetti.html` — Progetti in evidenza, organizzati per categoria (layout con CSS Grid)
 - `cv.html` — Curriculum Vitae in HTML
-- `contatti.html` — Contattami, con form (layout con Flexbox)
 
 ## Tecnologie
 
