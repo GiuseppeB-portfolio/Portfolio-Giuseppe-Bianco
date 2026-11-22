@@ -1,0 +1,15 @@
+# Non serve dentro il contesto di build
+.git
+.gitignore
+.github
+.vscode
+node_modules
+*.log
+.DS_Store
+.env
+.env.*
+README.md
+Dockerfile
+docker-compose.yml
+.dockerignore
+*.patch

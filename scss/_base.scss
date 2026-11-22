@@ -117,3 +117,7 @@ img {
   background: rgba($color-accent, 0.25);
   color: $color-text;
 }
+
+// Larghezze massime di lettura (al posto degli stili inline)
+.measure-60 { max-width: 60ch; }
+.measure-65 { max-width: 65ch; }

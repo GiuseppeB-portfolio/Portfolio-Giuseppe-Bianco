@@ -1,0 +1,18 @@
+services:
+  portfolio:
+    build: .
+    image: portfolio-giuseppe-bianco:latest
+    container_name: portfolio
+    # Raggiungibile solo dal tuo computer: http://localhost:8080
+    # Su un server pubblico sostituisci con "8080:8080" (o con la porta che preferisci).
+    ports:
+      - "127.0.0.1:8080:8080"
+    restart: unless-stopped
+    # Hardening del container
+    read_only: true
+    tmpfs:
+      - /tmp
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
