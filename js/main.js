@@ -1,7 +1,7 @@
 // =========================================================
 // MAIN.JS
 // Piccoli comportamenti di supporto: anno nel footer e invio
-// del form di contatto tramite EmailJS (esercizio opzionale).
+// del form di contatto tramite Google Moduli.
 // =========================================================
 
 // Anno corrente nel footer, su tutte le pagine
@@ -10,31 +10,30 @@ document.querySelectorAll('#year').forEach(function (el) {
 });
 
 // ---------------------------------------------------------
-// EMAILJS — configurazione
-// Per attivare l'invio reale del form:
-// 1. crea un account gratuito su https://www.emailjs.com/
-// 2. crea un "Email Service" e un "Email Template"
-// 3. sostituisci i tre placeholder qui sotto con i tuoi ID
-// Finché restano ai valori di default, il form mostra solo
-// un messaggio informativo invece di inviare l'email.
+// CONTATTI — invio tramite Google Moduli
+// Il form del sito invia i campi all'indirizzo "formResponse"
+// del Google Modulo; le risposte arrivano nel modulo (e, se
+// attivato, via email). I codici "entry.…" identificano le
+// quattro domande del modulo.
 // ---------------------------------------------------------
-const EMAILJS_CONFIG = {
-  publicKey: 'YOUR_PUBLIC_KEY',
-  serviceId: 'YOUR_SERVICE_ID',
-  templateId: 'YOUR_TEMPLATE_ID',
+const CONTACT_FORM = {
+  actionUrl:
+    'https://docs.google.com/forms/d/e/1FAIpQLScmCIDoN82uCUd9G-Pc7LaC0ZSZ5FRRUg20cptpNa6ea39YFg/formResponse',
+  fields: {
+    name: 'entry.2005620554',    // Nome e cognome
+    email: 'entry.1045781291',   // Email
+    subject: 'entry.1065046570', // Oggetto richiesta
+    message: 'entry.1166974658', // Messaggio
+  },
+  minFillMs: 3000, // sotto questa soglia dal caricamento della pagina il form non parte
 };
 
 const contactForm = document.getElementById('contact-form');
 
 if (contactForm) {
   const statusEl = document.getElementById('form-status');
-  const isConfigured = Object.values(EMAILJS_CONFIG).every(function (v) {
-    return v && !v.startsWith('YOUR_');
-  });
-
-  if (isConfigured && window.emailjs) {
-    emailjs.init({ publicKey: EMAILJS_CONFIG.publicKey });
-  }
+  const submitButton = contactForm.querySelector('button[type="submit"]');
+  const loadedAt = Date.now();
 
   const showStatus = function (message, type) {
     statusEl.textContent = message;
@@ -42,7 +41,11 @@ if (contactForm) {
     statusEl.classList.add('is-visible', type === 'success' ? 'is-success' : 'is-error');
   };
 
-  contactForm.addEventListener('submit', function (event) {
+  const value = function (id) {
+    return document.getElementById(id).value.trim();
+  };
+
+  contactForm.addEventListener('submit', async function (event) {
     event.preventDefault();
 
     if (!contactForm.checkValidity()) {
@@ -50,29 +53,42 @@ if (contactForm) {
       return;
     }
 
-    if (!isConfigured || !window.emailjs) {
-      showStatus(
-        'Il form è pronto ma l\'invio via EmailJS non è ancora configurato (vedi js/main.js). Nel frattempo puoi scrivermi su LinkedIn o GitHub qui sopra.',
-        'error'
-      );
+    // Campo trappola: se compilato è un bot, si ignora senza segnalare nulla
+    if (document.getElementById('contact_hp').value) {
       return;
     }
 
-    const submitButton = contactForm.querySelector('button[type="submit"]');
+    // Compilazione troppo rapida: si chiede di riprovare, senza perdere il messaggio
+    if (Date.now() - loadedAt < CONTACT_FORM.minFillMs) {
+      showStatus('Un momento, riprova tra qualche secondo.', 'error');
+      return;
+    }
+
+    const body = new URLSearchParams();
+    body.append(CONTACT_FORM.fields.name, value('name'));
+    body.append(CONTACT_FORM.fields.email, value('email'));
+    body.append(CONTACT_FORM.fields.subject, value('subject'));
+    body.append(CONTACT_FORM.fields.message, value('message'));
+
     submitButton.disabled = true;
     submitButton.textContent = 'Invio in corso...';
 
-    emailjs.sendForm(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.templateId, contactForm)
-      .then(function () {
-        showStatus('Messaggio inviato, grazie! Ti risponderò al più presto.', 'success');
-        contactForm.reset();
-      })
-      .catch(function () {
-        showStatus('Si è verificato un errore durante l\'invio. Riprova più tardi oppure scrivimi su LinkedIn.', 'error');
-      })
-      .finally(function () {
-        submitButton.disabled = false;
-        submitButton.textContent = 'Invia messaggio';
+    try {
+      // "no-cors": la risposta di Google non è leggibile, quindi si rilevano
+      // solo gli errori di rete; un rifiuto lato Google non è visibile qui.
+      await fetch(CONTACT_FORM.actionUrl, {
+        method: 'POST',
+        mode: 'no-cors',
+        credentials: 'omit',
+        body: body,
       });
+      showStatus('Messaggio inviato, grazie! Ti risponderò al più presto.', 'success');
+      contactForm.reset();
+    } catch (error) {
+      showStatus('Si è verificato un errore durante l\'invio. Riprova più tardi oppure scrivimi su LinkedIn.', 'error');
+    } finally {
+      submitButton.disabled = false;
+      submitButton.textContent = 'Invia messaggio';
+    }
   });
 }

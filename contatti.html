@@ -83,8 +83,14 @@
                 <textarea class="form-control" id="message" name="message" rows="5" required minlength="10"></textarea>
               </div>
 
+              <!-- Campo trappola anti-bot: invisibile agli utenti, non va compilato -->
+              <div class="visually-hidden" aria-hidden="true">
+                <label for="contact_hp">Non compilare questo campo</label>
+                <input type="text" id="contact_hp" name="contact_hp" tabindex="-1" autocomplete="off">
+              </div>
+
               <button type="submit" class="btn-primary-custom w-100">Invia messaggio</button>
-              <p class="form-note">L'invio è gestito con EmailJS, direttamente dal browser: nessun dato passa da un server esterno diverso da EmailJS stesso.</p>
+              <p class="form-note">I dati inseriti vengono usati solo per rispondere al tuo messaggio e sono raccolti tramite Google Moduli.</p>
 
               <div class="form-status" id="form-status" role="status" aria-live="polite"></div>
             </form>
@@ -107,7 +113,6 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
